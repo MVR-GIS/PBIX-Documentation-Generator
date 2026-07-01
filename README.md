@@ -35,6 +35,7 @@ It performs these key steps:
 - It supports both single-file and recursive directory processing.
 - Mermaid output can be rendered with any Mermaid-compatible viewer.
 - Connection extraction is based on `Source =` lines in M query text and may not capture every possible source expression.
+- Processing takes on average 1 second/file size MB
 
 ## Getting started
 
