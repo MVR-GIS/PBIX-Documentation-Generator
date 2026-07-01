@@ -4,7 +4,7 @@ Power BI Documentation Extractor
 ================================================================================
 Author: Ryan Benac (USACE Rock Island District)
 Date: July 1, 2026
-Version: 1.4
+Version: 1.5
 
 Description:
     This script extracts comprehensive documentation from Power BI (.pbix) files
@@ -232,8 +232,7 @@ def create_model_diagram(relationships, table_details, output_path):
         "---",
         "title: Power BI Data Model - Table Relationships",
         "---",
-        "erDiagram",
-        ""
+        "erDiagram"
     ]
     
     # Track which tables we've seen
@@ -290,25 +289,6 @@ def create_model_diagram(relationships, table_details, output_path):
         # Add relationship with label
         mermaid_lines.append(f'    {from_id} {symbol} {to_id} : "{label}"')
     
-    # Add note about legend
-    mermaid_lines.append("")
-    mermaid_lines.append("    %% ========================================")
-    mermaid_lines.append("    %% LEGEND")
-    mermaid_lines.append("    %% ========================================")
-    mermaid_lines.append("    %% Relationship Symbols:")
-    mermaid_lines.append("    %%   ||--||  : One-to-One")
-    mermaid_lines.append("    %%   ||--o{  : One-to-Many")
-    mermaid_lines.append("    %%   }o--o{  : Many-to-Many")
-    mermaid_lines.append("    %%")
-    mermaid_lines.append("    %% Storage Modes (shown in relationship labels):")
-    mermaid_lines.append("    %%   Import      : Data cached in memory")
-    mermaid_lines.append("    %%   DirectQuery : Live connection to source")
-    mermaid_lines.append("    %%   Dual        : Can use Import or DirectQuery")
-    mermaid_lines.append("    %%")
-    mermaid_lines.append("    %% Relationship Status:")
-    mermaid_lines.append("    %%   [INACTIVE]  : Relationship exists but not active")
-    mermaid_lines.append("    %% ========================================")
-    
     # Write as Markdown file with mermaid code block
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write("# Power BI Data Model - Table Relationships\n\n")
@@ -330,10 +310,6 @@ def create_model_diagram(relationships, table_details, output_path):
 def create_query_dependencies_diagram(m_queries_data, output_path):
     """Create a Mermaid diagram showing query dependencies including data sources"""
     
-    print("\n" + "="*80)
-    print("Creating Query Dependencies Diagram")
-    print("="*80)
-    
     mermaid_lines = [
         "---",
         "title: Power BI Query Dependencies - Data Sources to Queries",
@@ -351,9 +327,6 @@ def create_query_dependencies_diagram(m_queries_data, output_path):
     for query_name in m_queries_data.keys():
         all_queries.add(query_name)
     
-    print(f"\nTotal queries to analyze: {len(all_queries)}")
-    print(f"Query names: {sorted(all_queries)}\n")
-    
     # Analyze each query for references to other queries AND data sources
     for query_name, query_info in m_queries_data.items():
         expression = query_info.get('expression', '')
@@ -364,22 +337,13 @@ def create_query_dependencies_diagram(m_queries_data, output_path):
         else:
             expression = str(expression)
         
-        print(f"\n--- Analyzing: {query_name} ---")
-        print(f"  Type: {query_info.get('type')}")
-        print(f"  Expression length: {len(expression)}")
-        
         if not expression or len(expression) < 10:
-            print(f"  Skipping - expression too short or empty")
             continue
-        
-        # Show first 200 characters
-        print(f"  Expression preview:\n  {expression[:200]}")
         
         # Extract data source information
         source_info = extract_source_info_from_expression(expression)
         if source_info:
             data_sources[query_name] = source_info
-            print(f"  ✓ Found data source: {source_info['display_name']}")
         
         # Find all references using the comprehensive function
         referenced_queries = find_query_references(expression, all_queries)
@@ -389,16 +353,6 @@ def create_query_dependencies_diagram(m_queries_data, output_path):
         
         if valid_references:
             dependencies[query_name] = valid_references
-            print(f"  ✓ Found dependencies: {valid_references}")
-        else:
-            print(f"  No query dependencies found")
-    
-    print(f"\n{'='*80}")
-    print(f"Dependency Analysis Complete")
-    print(f"  Queries with data sources: {len(data_sources)}")
-    print(f"  Queries with dependencies: {len(dependencies)}")
-    print(f"  Total dependency links: {sum(len(refs) for refs in dependencies.values())}")
-    print(f"{'='*80}\n")
     
     # Create unique data source nodes
     unique_sources = {}
@@ -516,8 +470,6 @@ def create_query_dependencies_diagram(m_queries_data, output_path):
         f.write("- `--> transforms`: Query transforms another query\n\n")
         f.write("### Flow Direction\n")
         f.write("Data flows from **left to right**: Data Source → Query → Final Table\n")
-    
-    print(f"Query Dependencies diagram saved to: {output_path}\n")
 
 def process_pbix_file(pbix_file_path, output_base_dir):
     """Process a single PBIX file and extract documentation"""
@@ -525,9 +477,7 @@ def process_pbix_file(pbix_file_path, output_base_dir):
     pbix_file_path = Path(pbix_file_path)
     pbix_filename = pbix_file_path.stem
     
-    print(f"\n{'='*80}")
-    print(f"Processing: {pbix_filename}")
-    print(f"{'='*80}")
+    print(f"\nProcessing: {pbix_filename}")
     
     try:
         # parse the PBIX file
@@ -540,10 +490,6 @@ def process_pbix_file(pbix_file_path, output_base_dir):
         # Get M queries using power_query (it's a DataFrame)
         m_queries_df = model.power_query
         
-        print(f"\n--- Power Query DataFrame Info ---")
-        print(f"Number of queries: {len(m_queries_df)}")
-        print(f"Columns: {list(m_queries_df.columns)}")
-        
         # Get M parameters to add to M queries
         m_params_df = model.m_parameters
         
@@ -554,15 +500,9 @@ def process_pbix_file(pbix_file_path, output_base_dir):
         m_queries_data = {}
         
         # Add regular M queries
-        print(f"\n--- Capturing M Queries ---")
         for index, row in m_queries_df.iterrows():
             table_name = row['TableName']
             m_code = row['Expression']
-            
-            # Debug output
-            print(f"\nQuery: {table_name}")
-            print(f"  Expression type: {type(m_code)}")
-            print(f"  Expression length: {len(str(m_code)) if m_code is not None else 0}")
             
             m_queries_data[table_name] = {
                 "type": "query",
@@ -572,13 +512,9 @@ def process_pbix_file(pbix_file_path, output_base_dir):
         
         # Add M parameters
         if not m_params_df.empty:
-            print(f"\n--- Capturing M Parameters ---")
             for index, param_row in m_params_df.iterrows():
                 param_name = str(param_row.get('ParameterName', ''))
                 expression = str(param_row.get('Expression', '')) if param_row.get('Expression') is not None else ''
-                
-                print(f"\nParameter: {param_name}")
-                print(f"  Expression length: {len(expression)}")
                 
                 m_queries_data[param_name] = {
                     "type": "parameter",
@@ -922,7 +858,6 @@ def process_pbix_file(pbix_file_path, output_base_dir):
             json.dump(summary_data, f, indent=2, ensure_ascii=False)
         
         # Create Mermaid diagrams (now as .md files)
-        print(f"\n  Generating Mermaid diagrams...")
         
         # Model diagram (relationships)
         model_diagram_path = output_dir / "Model_Diagram.md"
@@ -933,29 +868,18 @@ def process_pbix_file(pbix_file_path, output_base_dir):
         create_query_dependencies_diagram(m_queries_data, query_diagram_path)
         
         # Print summary
-        print(f"\n✓ SUCCESS - Documentation extracted to: {output_dir}")
-        print(f"\n  Files Created:")
-        print(f"  ├─ M_Queries.json")
-        print(f"  ├─ Tables.json")
-        print(f"  ├─ Model.json")
-        print(f"  ├─ Connections.json")
-        print(f"  ├─ Summary.json")
-        print(f"  ├─ Model_Diagram.md (Open in VS Code and press Ctrl+K V to preview)")
-        print(f"  └─ Query_Dependencies.md (Open in VS Code and press Ctrl+K V to preview)")
+        print(f"✓ SUCCESS - Documentation extracted to: {output_dir}")
         print(f"\n  Summary Statistics:")
         print(f"  ├─ Tables: {summary_data['tables']['total_tables']} ({summary_data['tables']['user_generated_tables']} user-generated)")
         print(f"  ├─ Columns: {summary_data['columns']['total_columns']}")
         print(f"  ├─ Measures: {summary_data['measures']['total_measures']}")
         print(f"  ├─ Relationships: {summary_data['relationships']['total_relationships']}")
-        print(f"  ├─ Connections: {summary_data['connections']['total_unique_connections']}")
-        print(f"  └─ Storage Modes: {storage_mode_summary}")
+        print(f"  └─ Connections: {summary_data['connections']['total_unique_connections']}")
         
         return True, summary_data
         
     except Exception as e:
-        print(f"\n✗ FAILED - Error processing file: {str(e)}")
-        import traceback
-        traceback.print_exc()
+        print(f"✗ FAILED - Error: {str(e)}")
         return False, None
 
 # ============================================================================
@@ -975,7 +899,6 @@ if __name__ == "__main__":
     if pbix_path.is_file() and pbix_path.suffix.lower() == '.pbix':
         # Single file processing
         print(f"\nMode: Single File")
-        print(f"File: {pbix_path.name}")
         
         success, summary = process_pbix_file(pbix_path, output_base_dir)
         
@@ -991,7 +914,6 @@ if __name__ == "__main__":
     elif pbix_path.is_dir():
         # Directory processing - recursive scan
         print(f"\nMode: Recursive Directory Scan")
-        print(f"Directory: {pbix_path}")
         
         # Find all .pbix files recursively
         pbix_files = list(pbix_path.rglob("*.pbix"))
@@ -999,7 +921,7 @@ if __name__ == "__main__":
         if not pbix_files:
             print(f"\n✗ No .pbix files found in {pbix_path}")
         else:
-            print(f"\nFound {len(pbix_files)} .pbix file(s)")
+            print(f"\nFound {len(pbix_files)} .pbix file(s)\n")
             
             successful = 0
             failed = 0
