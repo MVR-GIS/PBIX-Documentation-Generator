@@ -4,7 +4,7 @@ Power BI Documentation Extractor
 ================================================================================
 Author: Ryan Benac (USACE Rock Island District)
 Date: July 1, 2026
-Version: 1.2
+Version: 1.4
 
 Description:
     This script extracts comprehensive documentation from Power BI (.pbix) files
@@ -17,18 +17,20 @@ Output Files:
     - Model.json: Relationships, storage modes, and partition details
     - Connections.json: Data source connections and endpoints
     - Summary.json: Overall statistics and complexity metrics
-    - Model_Diagram.mmd: Mermaid diagram of table relationships
-    - Query_Dependencies.mmd: Mermaid diagram of query dependencies
+    - Model_Diagram.md: Mermaid diagram of table relationships (Markdown format)
+    - Query_Dependencies.md: Mermaid diagram of query dependencies (Markdown format)
 
 Usage:
     1. Set pbix_path to a single .pbix file or a folder path
     2. Run the script
     3. Documentation will be saved to the output_dir location
+    4. Open .md files in VS Code and use preview (Ctrl+K V)
 
 Requirements:
     - pbixray library
     - pandas
     - Python 3.7+
+    - VS Code with "Markdown Preview Mermaid Support" extension (for viewing)
 ================================================================================
 """
 
@@ -54,6 +56,67 @@ output_base_dir = Path(r"C:\Workspace\GIT\PBIX-Documentation-Generator\Dashboard
 # ============================================================================
 # FUNCTIONS
 # ============================================================================
+
+def extract_source_info_from_expression(expression):
+    """Extract data source information from M expression"""
+    if not expression:
+        return None
+    
+    expression = str(expression)
+    lines = expression.split('\n')
+    
+    for line in lines:
+        line = line.strip()
+        
+        # Pattern 1: Source = FunctionName.Method("endpoint")
+        match = re.search(r'Source\s*=\s*([A-Za-z0-9_]+\.[A-Za-z0-9_]+)\s*\(\s*"([\^"]+)"', line)
+        if match:
+            return {
+                "type": "data_source",
+                "source_function": match.group(1),
+                "endpoint": match.group(2),
+                "display_name": f"{match.group(1)}"
+            }
+        
+        # Pattern 2: Source = FunctionName.Method(parameter, "endpoint")
+        match = re.search(r'Source\s*=\s*([A-Za-z0-9_]+\.[A-Za-z0-9_]+)\s*\([\^,]+,\s*"([\^"]+)"', line)
+        if match:
+            return {
+                "type": "data_source",
+                "source_function": match.group(1),
+                "endpoint": match.group(2),
+                "display_name": f"{match.group(1)}"
+            }
+        
+        # Pattern 3: Source = Excel.Workbook or similar without quotes
+        match = re.search(r'Source\s*=\s*([A-Za-z0-9_]+\.[A-Za-z0-9_]+)\s*\(', line)
+        if match:
+            return {
+                "type": "data_source",
+                "source_function": match.group(1),
+                "endpoint": "",
+                "display_name": f"{match.group(1)}"
+            }
+        
+        # Pattern 4: Web.Contents or similar
+        if 'Web.Contents' in line or 'Web.Page' in line:
+            return {
+                "type": "data_source",
+                "source_function": "Web.Contents",
+                "endpoint": "",
+                "display_name": "Web Source"
+            }
+        
+        # Pattern 5: SharePoint
+        if 'SharePoint.' in line:
+            return {
+                "type": "data_source",
+                "source_function": "SharePoint",
+                "endpoint": "",
+                "display_name": "SharePoint"
+            }
+    
+    return None
 
 def extract_source_info_from_line(source_line):
     """Extract source information from a Source = line"""
@@ -203,43 +266,69 @@ def create_model_diagram(relationships, table_details, output_path):
         else:
             symbol = '||--||'  # Default to one-to-one
         
-        # Add active/inactive indicator
-        active_indicator = "" if rel.get('is_active', True) else " (inactive)"
+        # Add active/inactive indicator and storage mode to label
+        active_indicator = "" if rel.get('is_active', True) else " [INACTIVE]"
+        
+        # Get storage modes for both tables
+        from_storage = ""
+        to_storage = ""
+        if from_table in table_details:
+            from_storage = table_details[from_table]['storage_mode']
+        if to_table in table_details:
+            to_storage = table_details[to_table]['storage_mode']
         
         # Sanitize table names for Mermaid
         from_id = sanitize_mermaid_id(from_table)
         to_id = sanitize_mermaid_id(to_table)
         
-        # Escape special characters in label
+        # Create descriptive label with storage modes
         label = f"{rel['from_column']} to {rel['to_column']}{active_indicator}"
+        if from_storage or to_storage:
+            label += f" ({from_storage} to {to_storage})"
         label = label.replace('"', '&quot;')
         
         # Add relationship with label
         mermaid_lines.append(f'    {from_id} {symbol} {to_id} : "{label}"')
     
-    # Add table attributes for tables in relationships
-    if tables_in_relationships:
-        mermaid_lines.append("")
-        mermaid_lines.append("    %% Table Details")
-        
-        for table_name in sorted(tables_in_relationships):
-            table_id = sanitize_mermaid_id(table_name)
-            storage_mode = ""
-            
-            if table_name in table_details:
-                storage_mode = f" [{table_details[table_name]['storage_mode']}]"
-            
-            # Escape special characters in display name
-            display_name = str(table_name).replace('"', '&quot;')
-            
-            mermaid_lines.append(f'    {table_id}["{display_name}{storage_mode}"]')
+    # Add note about legend
+    mermaid_lines.append("")
+    mermaid_lines.append("    %% ========================================")
+    mermaid_lines.append("    %% LEGEND")
+    mermaid_lines.append("    %% ========================================")
+    mermaid_lines.append("    %% Relationship Symbols:")
+    mermaid_lines.append("    %%   ||--||  : One-to-One")
+    mermaid_lines.append("    %%   ||--o{  : One-to-Many")
+    mermaid_lines.append("    %%   }o--o{  : Many-to-Many")
+    mermaid_lines.append("    %%")
+    mermaid_lines.append("    %% Storage Modes (shown in relationship labels):")
+    mermaid_lines.append("    %%   Import      : Data cached in memory")
+    mermaid_lines.append("    %%   DirectQuery : Live connection to source")
+    mermaid_lines.append("    %%   Dual        : Can use Import or DirectQuery")
+    mermaid_lines.append("    %%")
+    mermaid_lines.append("    %% Relationship Status:")
+    mermaid_lines.append("    %%   [INACTIVE]  : Relationship exists but not active")
+    mermaid_lines.append("    %% ========================================")
     
-    # Write to file
+    # Write as Markdown file with mermaid code block
     with open(output_path, 'w', encoding='utf-8') as f:
+        f.write("# Power BI Data Model - Table Relationships\n\n")
+        f.write("```mermaid\n")
         f.write('\n'.join(mermaid_lines))
+        f.write("\n```\n\n")
+        f.write("## Legend\n\n")
+        f.write("### Relationship Symbols\n")
+        f.write("- `||--||` : One-to-One\n")
+        f.write("- `||--o{` : One-to-Many\n")
+        f.write("- `}o--o{` : Many-to-Many\n\n")
+        f.write("### Storage Modes\n")
+        f.write("- **Import**: Data cached in memory\n")
+        f.write("- **DirectQuery**: Live connection to source\n")
+        f.write("- **Dual**: Can use Import or DirectQuery\n\n")
+        f.write("### Relationship Status\n")
+        f.write("- **[INACTIVE]**: Relationship exists but not active\n")
 
 def create_query_dependencies_diagram(m_queries_data, output_path):
-    """Create a Mermaid diagram showing query dependencies"""
+    """Create a Mermaid diagram showing query dependencies including data sources"""
     
     print("\n" + "="*80)
     print("Creating Query Dependencies Diagram")
@@ -247,15 +336,16 @@ def create_query_dependencies_diagram(m_queries_data, output_path):
     
     mermaid_lines = [
         "---",
-        "title: Power BI Query Dependencies",
+        "title: Power BI Query Dependencies - Data Sources to Queries",
         "---",
-        "graph TD",
+        "graph LR",
         ""
     ]
     
-    # Track dependencies
+    # Track dependencies and data sources
     dependencies = {}
     all_queries = set()
+    data_sources = {}  # Maps query to its data source
     
     # First, collect all query names
     for query_name in m_queries_data.keys():
@@ -264,7 +354,7 @@ def create_query_dependencies_diagram(m_queries_data, output_path):
     print(f"\nTotal queries to analyze: {len(all_queries)}")
     print(f"Query names: {sorted(all_queries)}\n")
     
-    # Analyze each query for references to other queries
+    # Analyze each query for references to other queries AND data sources
     for query_name, query_info in m_queries_data.items():
         expression = query_info.get('expression', '')
         
@@ -285,6 +375,12 @@ def create_query_dependencies_diagram(m_queries_data, output_path):
         # Show first 200 characters
         print(f"  Expression preview:\n  {expression[:200]}")
         
+        # Extract data source information
+        source_info = extract_source_info_from_expression(expression)
+        if source_info:
+            data_sources[query_name] = source_info
+            print(f"  ✓ Found data source: {source_info['display_name']}")
+        
         # Find all references using the comprehensive function
         referenced_queries = find_query_references(expression, all_queries)
         
@@ -295,15 +391,37 @@ def create_query_dependencies_diagram(m_queries_data, output_path):
             dependencies[query_name] = valid_references
             print(f"  ✓ Found dependencies: {valid_references}")
         else:
-            print(f"  No dependencies found")
+            print(f"  No query dependencies found")
     
     print(f"\n{'='*80}")
     print(f"Dependency Analysis Complete")
+    print(f"  Queries with data sources: {len(data_sources)}")
     print(f"  Queries with dependencies: {len(dependencies)}")
     print(f"  Total dependency links: {sum(len(refs) for refs in dependencies.values())}")
     print(f"{'='*80}\n")
     
-    # Add nodes with styling based on type
+    # Create unique data source nodes
+    unique_sources = {}
+    for query_name, source_info in data_sources.items():
+        source_key = source_info['source_function']
+        if source_key not in unique_sources:
+            unique_sources[source_key] = {
+                'display_name': source_info['display_name'],
+                'queries': []
+            }
+        unique_sources[source_key]['queries'].append(query_name)
+    
+    # Add data source nodes
+    mermaid_lines.append("    %% Data Sources")
+    for source_key, source_data in unique_sources.items():
+        source_id = sanitize_mermaid_id(source_key)
+        display_name = source_data['display_name'].replace('"', '&quot;')
+        mermaid_lines.append(f'    {source_id}[("🗄️ {display_name}")]')
+        mermaid_lines.append(f'    style {source_id} fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px')
+    
+    mermaid_lines.append("")
+    
+    # Add query nodes with improved styling
     mermaid_lines.append("    %% Query Nodes")
     
     for query_name in sorted(all_queries):
@@ -322,21 +440,38 @@ def create_query_dependencies_diagram(m_queries_data, output_path):
         # Escape special characters in display name
         display_name = str(query_name).replace('"', '&quot;')
         
-        # Determine node style
+        # Determine node style with improved colors
         if query_type == 'parameter':
-            mermaid_lines.append(f'    {query_id}[("{display_name}<br/>[Parameter]")]')
-            mermaid_lines.append(f'    style {query_id} fill:#e1f5ff,stroke:#01579b')
+            mermaid_lines.append(f'    {query_id}[["⚙️ {display_name}<br/>Parameter"]]')
+            mermaid_lines.append(f'    style {query_id} fill:#e3f2fd,stroke:#1976d2,stroke-width:2px')
         elif not enable_load:
-            mermaid_lines.append(f'    {query_id}["{display_name}<br/>(Load Disabled)"]')
-            mermaid_lines.append(f'    style {query_id} fill:#fff3e0,stroke:#e65100')
+            mermaid_lines.append(f'    {query_id}["{display_name}<br/>Not Loaded"]')
+            mermaid_lines.append(f'    style {query_id} fill:#fff3e0,stroke:#f57c00,stroke-width:2px,stroke-dasharray: 5 5')
         else:
-            mermaid_lines.append(f'    {query_id}["{display_name}"]')
-            mermaid_lines.append(f'    style {query_id} fill:#e8f5e9,stroke:#2e7d32')
+            # Check if this is a final table (has dependencies but is not referenced by others)
+            is_referenced = any(query_name in deps for deps in dependencies.values())
+            if is_referenced:
+                # Intermediate query
+                mermaid_lines.append(f'    {query_id}["{display_name}"]')
+                mermaid_lines.append(f'    style {query_id} fill:#e8f5e9,stroke:#388e3c,stroke-width:2px')
+            else:
+                # Final table (loaded to model)
+                mermaid_lines.append(f'    {query_id}["{display_name}<br/>📊 Final Table"]')
+                mermaid_lines.append(f'    style {query_id} fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px')
     
-    # Add dependencies
+    mermaid_lines.append("")
+    
+    # Add connections from data sources to queries
+    mermaid_lines.append("    %% Data Source Connections")
+    for query_name, source_info in data_sources.items():
+        source_id = sanitize_mermaid_id(source_info['source_function'])
+        query_id = sanitize_mermaid_id(query_name)
+        mermaid_lines.append(f'    {source_id} ==>|extracts| {query_id}')
+    
+    # Add dependencies between queries
     if dependencies:
         mermaid_lines.append("")
-        mermaid_lines.append("    %% Dependencies")
+        mermaid_lines.append("    %% Query Dependencies")
         
         for query_name, referenced in dependencies.items():
             query_id = sanitize_mermaid_id(query_name)
@@ -344,21 +479,43 @@ def create_query_dependencies_diagram(m_queries_data, output_path):
             for ref_query in referenced:
                 if ref_query in all_queries:
                     ref_id = sanitize_mermaid_id(ref_query)
-                    mermaid_lines.append(f'    {ref_id} --> {query_id}')
-    else:
-        mermaid_lines.append("")
-        mermaid_lines.append("    %% No dependencies found")
-        print("WARNING: No dependencies detected in any queries!")
+                    mermaid_lines.append(f'    {ref_id} -->|transforms| {query_id}')
     
-    # Add legend
+    # Add visible legend as actual nodes in a subgraph
     mermaid_lines.append("")
     mermaid_lines.append("    %% Legend")
-    mermaid_lines.append('    Legend["<b>Legend</b><br/>Green: Loaded Query<br/>Orange: Not Loaded<br/>Blue: Parameter"]')
-    mermaid_lines.append('    style Legend fill:#f5f5f5,stroke:#666')
+    mermaid_lines.append("    subgraph Legend[\" \"]")
+    mermaid_lines.append('        direction TB')
+    mermaid_lines.append('        L1[("🗄️ Data Source")]')
+    mermaid_lines.append('        L2[["⚙️ Parameter"]]')
+    mermaid_lines.append('        L3["Intermediate Query"]')
+    mermaid_lines.append('        L4["📊 Final Table"]')
+    mermaid_lines.append('        L5["Not Loaded"]')
+    mermaid_lines.append('        style L1 fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px')
+    mermaid_lines.append('        style L2 fill:#e3f2fd,stroke:#1976d2,stroke-width:2px')
+    mermaid_lines.append('        style L3 fill:#e8f5e9,stroke:#388e3c,stroke-width:2px')
+    mermaid_lines.append('        style L4 fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px')
+    mermaid_lines.append('        style L5 fill:#fff3e0,stroke:#f57c00,stroke-width:2px,stroke-dasharray: 5 5')
+    mermaid_lines.append('    end')
     
-    # Write to file
+    # Write as Markdown file with mermaid code block
     with open(output_path, 'w', encoding='utf-8') as f:
+        f.write("# Power BI Query Dependencies - Data Sources to Queries\n\n")
+        f.write("```mermaid\n")
         f.write('\n'.join(mermaid_lines))
+        f.write("\n```\n\n")
+        f.write("## Legend\n\n")
+        f.write("### Node Types\n")
+        f.write("- 🗄️ **Purple Box (Data Source)**: External data source (SharePoint, SQL, etc.)\n")
+        f.write("- ⚙️ **Blue Box (Parameter)**: M Parameter used in queries\n")
+        f.write("- **Light Green Box (Intermediate Query)**: Query that transforms data and is referenced by other queries\n")
+        f.write("- 📊 **Dark Green Box (Final Table)**: Query loaded into the data model\n")
+        f.write("- **Orange Dashed Box (Not Loaded)**: Query that exists but is not loaded to the model\n\n")
+        f.write("### Arrow Types\n")
+        f.write("- `==> extracts`: Data extracted from source\n")
+        f.write("- `--> transforms`: Query transforms another query\n\n")
+        f.write("### Flow Direction\n")
+        f.write("Data flows from **left to right**: Data Source → Query → Final Table\n")
     
     print(f"Query Dependencies diagram saved to: {output_path}\n")
 
@@ -764,15 +921,15 @@ def process_pbix_file(pbix_file_path, output_base_dir):
         with open(summary_json_path, 'w', encoding='utf-8') as f:
             json.dump(summary_data, f, indent=2, ensure_ascii=False)
         
-        # Create Mermaid diagrams
+        # Create Mermaid diagrams (now as .md files)
         print(f"\n  Generating Mermaid diagrams...")
         
         # Model diagram (relationships)
-        model_diagram_path = output_dir / "Model_Diagram.mmd"
+        model_diagram_path = output_dir / "Model_Diagram.md"
         create_model_diagram(model_data["relationships"], table_details, model_diagram_path)
         
         # Query dependencies diagram
-        query_diagram_path = output_dir / "Query_Dependencies.mmd"
+        query_diagram_path = output_dir / "Query_Dependencies.md"
         create_query_dependencies_diagram(m_queries_data, query_diagram_path)
         
         # Print summary
@@ -783,8 +940,8 @@ def process_pbix_file(pbix_file_path, output_base_dir):
         print(f"  ├─ Model.json")
         print(f"  ├─ Connections.json")
         print(f"  ├─ Summary.json")
-        print(f"  ├─ Model_Diagram.mmd")
-        print(f"  └─ Query_Dependencies.mmd")
+        print(f"  ├─ Model_Diagram.md (Open in VS Code and press Ctrl+K V to preview)")
+        print(f"  └─ Query_Dependencies.md (Open in VS Code and press Ctrl+K V to preview)")
         print(f"\n  Summary Statistics:")
         print(f"  ├─ Tables: {summary_data['tables']['total_tables']} ({summary_data['tables']['user_generated_tables']} user-generated)")
         print(f"  ├─ Columns: {summary_data['columns']['total_columns']}")
