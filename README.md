@@ -81,5 +81,5 @@ For each processed report, the script generates:
 - `Model.json` — relationships, table storage modes, and partition details
 - `Connections.json` — extracted data source connection endpoints
 - `Summary.json` — metadata counts, complexity indicators, and documentation quality
-- `Model_Diagram.mmd` — Mermaid ER diagram of table relationships
-- `Query_Dependencies.mmd` — Mermaid dependency graph for Power Query queries
+- `Model_Diagram.md` — Mermaid ER diagram of table relationships
+- `Query_Dependencies.md` — Mermaid dependency graph for Power Query queries
