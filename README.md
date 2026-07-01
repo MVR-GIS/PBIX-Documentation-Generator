@@ -84,3 +84,6 @@ For each processed report, the script generates:
 - `Summary.json` — metadata counts, complexity indicators, and documentation quality
 - `Model_Diagram.md` — Mermaid ER diagram of table relationships
 - `Query_Dependencies.md` — Mermaid dependency graph for Power Query queries
+
+## AI Assistance Disclosure
+Portions of the code and documentation in this repository were generated or refined with the assistance of **Claude Sonnet 4.5** via Army Vantage AIP Threads.
