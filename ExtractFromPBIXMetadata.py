@@ -232,6 +232,7 @@ def create_model_diagram(relationships, table_details, output_path):
         "---",
         "title: Power BI Data Model - Table Relationships",
         "---",
+        "%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#fff','primaryTextColor':'#000','primaryBorderColor':'#000','lineColor':'#000','secondaryColor':'#f4f4f4','tertiaryColor':'#fff','background':'#ffffff','mainBkg':'#ffffff','textColor':'#000000','labelTextColor':'#000000'}}}%%",
         "erDiagram"
     ]
     
@@ -314,6 +315,7 @@ def create_query_dependencies_diagram(m_queries_data, output_path):
         "---",
         "title: Power BI Query Dependencies - Data Sources to Queries",
         "---",
+        "%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#fff','primaryTextColor':'#000','primaryBorderColor':'#000','lineColor':'#000','secondaryColor':'#f4f4f4','tertiaryColor':'#fff','background':'#ffffff','mainBkg':'#ffffff','textColor':'#000000','labelTextColor':'#000000','edgeLabelBackground':'#ffffff'}}}%%",
         "graph LR",
         ""
     ]
@@ -365,17 +367,17 @@ def create_query_dependencies_diagram(m_queries_data, output_path):
             }
         unique_sources[source_key]['queries'].append(query_name)
     
-    # Add data source nodes
+    # Add data source nodes with darker colors for better contrast
     mermaid_lines.append("    %% Data Sources")
     for source_key, source_data in unique_sources.items():
         source_id = sanitize_mermaid_id(source_key)
         display_name = source_data['display_name'].replace('"', '&quot;')
         mermaid_lines.append(f'    {source_id}[("🗄️ {display_name}")]')
-        mermaid_lines.append(f'    style {source_id} fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px')
+        mermaid_lines.append(f'    style {source_id} fill:#e1bee7,stroke:#6a1b9a,stroke-width:3px,color:#000')
     
     mermaid_lines.append("")
     
-    # Add query nodes with improved styling
+    # Add query nodes with improved styling and dark text
     mermaid_lines.append("    %% Query Nodes")
     
     for query_name in sorted(all_queries):
@@ -394,24 +396,24 @@ def create_query_dependencies_diagram(m_queries_data, output_path):
         # Escape special characters in display name
         display_name = str(query_name).replace('"', '&quot;')
         
-        # Determine node style with improved colors
+        # Determine node style with improved colors and dark text
         if query_type == 'parameter':
             mermaid_lines.append(f'    {query_id}[["⚙️ {display_name}<br/>Parameter"]]')
-            mermaid_lines.append(f'    style {query_id} fill:#e3f2fd,stroke:#1976d2,stroke-width:2px')
+            mermaid_lines.append(f'    style {query_id} fill:#bbdefb,stroke:#0d47a1,stroke-width:2px,color:#000')
         elif not enable_load:
             mermaid_lines.append(f'    {query_id}["{display_name}<br/>Not Loaded"]')
-            mermaid_lines.append(f'    style {query_id} fill:#fff3e0,stroke:#f57c00,stroke-width:2px,stroke-dasharray: 5 5')
+            mermaid_lines.append(f'    style {query_id} fill:#ffe0b2,stroke:#e65100,stroke-width:2px,stroke-dasharray: 5 5,color:#000')
         else:
             # Check if this is a final table (has dependencies but is not referenced by others)
             is_referenced = any(query_name in deps for deps in dependencies.values())
             if is_referenced:
                 # Intermediate query
                 mermaid_lines.append(f'    {query_id}["{display_name}"]')
-                mermaid_lines.append(f'    style {query_id} fill:#e8f5e9,stroke:#388e3c,stroke-width:2px')
+                mermaid_lines.append(f'    style {query_id} fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px,color:#000')
             else:
                 # Final table (loaded to model)
                 mermaid_lines.append(f'    {query_id}["{display_name}<br/>📊 Final Table"]')
-                mermaid_lines.append(f'    style {query_id} fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px')
+                mermaid_lines.append(f'    style {query_id} fill:#a5d6a7,stroke:#1b5e20,stroke-width:3px,color:#000')
     
     mermaid_lines.append("")
     
@@ -445,11 +447,11 @@ def create_query_dependencies_diagram(m_queries_data, output_path):
     mermaid_lines.append('        L3["Intermediate Query"]')
     mermaid_lines.append('        L4["📊 Final Table"]')
     mermaid_lines.append('        L5["Not Loaded"]')
-    mermaid_lines.append('        style L1 fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px')
-    mermaid_lines.append('        style L2 fill:#e3f2fd,stroke:#1976d2,stroke-width:2px')
-    mermaid_lines.append('        style L3 fill:#e8f5e9,stroke:#388e3c,stroke-width:2px')
-    mermaid_lines.append('        style L4 fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px')
-    mermaid_lines.append('        style L5 fill:#fff3e0,stroke:#f57c00,stroke-width:2px,stroke-dasharray: 5 5')
+    mermaid_lines.append('        style L1 fill:#e1bee7,stroke:#6a1b9a,stroke-width:3px,color:#000')
+    mermaid_lines.append('        style L2 fill:#bbdefb,stroke:#0d47a1,stroke-width:2px,color:#000')
+    mermaid_lines.append('        style L3 fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px,color:#000')
+    mermaid_lines.append('        style L4 fill:#a5d6a7,stroke:#1b5e20,stroke-width:3px,color:#000')
+    mermaid_lines.append('        style L5 fill:#ffe0b2,stroke:#e65100,stroke-width:2px,stroke-dasharray: 5 5,color:#000')
     mermaid_lines.append('    end')
     
     # Write as Markdown file with mermaid code block
@@ -471,6 +473,7 @@ def create_query_dependencies_diagram(m_queries_data, output_path):
         f.write("### Flow Direction\n")
         f.write("Data flows from **left to right**: Data Source → Query → Final Table\n")
 
+        
 def process_pbix_file(pbix_file_path, output_base_dir):
     """Process a single PBIX file and extract documentation"""
     

@@ -4,41 +4,42 @@
 ---
 title: Power BI Query Dependencies - Data Sources to Queries
 ---
+%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#fff','primaryTextColor':'#000','primaryBorderColor':'#000','lineColor':'#000','secondaryColor':'#f4f4f4','tertiaryColor':'#fff','background':'#ffffff','mainBkg':'#ffffff','textColor':'#000000','labelTextColor':'#000000','edgeLabelBackground':'#ffffff'}}}%%
 graph LR
 
     %% Data Sources
     Table_Combine[("🗄️ Table.Combine")]
-    style Table_Combine fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px
+    style Table_Combine fill:#e1bee7,stroke:#6a1b9a,stroke-width:3px,color:#000
     SharePoint_Tables[("🗄️ SharePoint.Tables")]
-    style SharePoint_Tables fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px
+    style SharePoint_Tables fill:#e1bee7,stroke:#6a1b9a,stroke-width:3px,color:#000
     DateTime_LocalNow[("🗄️ DateTime.LocalNow")]
-    style DateTime_LocalNow fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px
+    style DateTime_LocalNow fill:#e1bee7,stroke:#6a1b9a,stroke-width:3px,color:#000
     SharePoint_Files[("🗄️ SharePoint.Files")]
-    style SharePoint_Files fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px
+    style SharePoint_Files fill:#e1bee7,stroke:#6a1b9a,stroke-width:3px,color:#000
     Odbc_DataSource[("🗄️ Odbc.DataSource")]
-    style Odbc_DataSource fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px
+    style Odbc_DataSource fill:#e1bee7,stroke:#6a1b9a,stroke-width:3px,color:#000
 
     %% Query Nodes
     All_Tickets["All Tickets<br/>📊 Final Table"]
-    style All_Tickets fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
+    style All_Tickets fill:#a5d6a7,stroke:#1b5e20,stroke-width:3px,color:#000
     CAD_Tickets["CAD Tickets"]
-    style CAD_Tickets fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    style CAD_Tickets fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px,color:#000
     EMS_Tickets["EMS Tickets"]
-    style EMS_Tickets fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    style EMS_Tickets fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px,color:#000
     EMS_EMPLOYEES[["⚙️ EMS_EMPLOYEES<br/>Parameter"]]
-    style EMS_EMPLOYEES fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style EMS_EMPLOYEES fill:#bbdefb,stroke:#0d47a1,stroke-width:2px,color:#000
     EXT["EXT<br/>📊 Final Table"]
-    style EXT fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
+    style EXT fill:#a5d6a7,stroke:#1b5e20,stroke-width:3px,color:#000
     KM_Tickets["KM Tickets"]
-    style KM_Tickets fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    style KM_Tickets fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px,color:#000
     LastRefresh["LastRefresh<br/>📊 Final Table"]
-    style LastRefresh fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
+    style LastRefresh fill:#a5d6a7,stroke:#1b5e20,stroke-width:3px,color:#000
     PW_Tickets["PW Tickets"]
-    style PW_Tickets fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    style PW_Tickets fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px,color:#000
     ParameterMTest[["⚙️ ParameterMTest<br/>Parameter"]]
-    style ParameterMTest fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style ParameterMTest fill:#bbdefb,stroke:#0d47a1,stroke-width:2px,color:#000
     TYPE["TYPE<br/>📊 Final Table"]
-    style TYPE fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
+    style TYPE fill:#a5d6a7,stroke:#1b5e20,stroke-width:3px,color:#000
 
     %% Data Source Connections
     Table_Combine ==>|extracts| All_Tickets
@@ -52,9 +53,9 @@ graph LR
     Odbc_DataSource ==>|extracts| EMS_EMPLOYEES
 
     %% Query Dependencies
-    KM_Tickets -->|transforms| All_Tickets
     CAD_Tickets -->|transforms| All_Tickets
     PW_Tickets -->|transforms| All_Tickets
+    KM_Tickets -->|transforms| All_Tickets
     EMS_Tickets -->|transforms| All_Tickets
     EMS_EMPLOYEES -->|transforms| PW_Tickets
     EMS_EMPLOYEES -->|transforms| EMS_Tickets
@@ -68,11 +69,11 @@ graph LR
         L3["Intermediate Query"]
         L4["📊 Final Table"]
         L5["Not Loaded"]
-        style L1 fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px
-        style L2 fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
-        style L3 fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
-        style L4 fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
-        style L5 fill:#fff3e0,stroke:#f57c00,stroke-width:2px,stroke-dasharray: 5 5
+        style L1 fill:#e1bee7,stroke:#6a1b9a,stroke-width:3px,color:#000
+        style L2 fill:#bbdefb,stroke:#0d47a1,stroke-width:2px,color:#000
+        style L3 fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px,color:#000
+        style L4 fill:#a5d6a7,stroke:#1b5e20,stroke-width:3px,color:#000
+        style L5 fill:#ffe0b2,stroke:#e65100,stroke-width:2px,stroke-dasharray: 5 5,color:#000
     end
 ```
 

@@ -4,6 +4,7 @@
 ---
 title: Power BI Data Model - Table Relationships
 ---
+%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#fff','primaryTextColor':'#000','primaryBorderColor':'#000','lineColor':'#000','secondaryColor':'#f4f4f4','tertiaryColor':'#fff','background':'#ffffff','mainBkg':'#ffffff','textColor':'#000000','labelTextColor':'#000000'}}}%%
 erDiagram
     KM_Tickets ||--|| All_Tickets : "TicketID to TicketID (Import to Import)"
     PW_Tickets ||--|| All_Tickets : "TicketID to TicketID (Import to Import)"
