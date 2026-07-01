@@ -1,0 +1,406 @@
+{
+  "relationships": [
+    {
+      "from_table": "KM Tickets",
+      "from_column": "TicketID",
+      "to_table": "All Tickets",
+      "to_column": "TicketID",
+      "is_active": true,
+      "cross_filtering_behavior": "Both",
+      "cardinality": "1:1",
+      "security_filtering_behavior": "",
+      "from_key_count": "60",
+      "to_key_count": "804",
+      "rely_on_referential_integrity": false
+    },
+    {
+      "from_table": "PW Tickets",
+      "from_column": "TicketID",
+      "to_table": "All Tickets",
+      "to_column": "TicketID",
+      "is_active": true,
+      "cross_filtering_behavior": "Both",
+      "cardinality": "1:1",
+      "security_filtering_behavior": "",
+      "from_key_count": "461",
+      "to_key_count": "804",
+      "rely_on_referential_integrity": false
+    },
+    {
+      "from_table": "EMS Tickets",
+      "from_column": "TicketID",
+      "to_table": "All Tickets",
+      "to_column": "TicketID",
+      "is_active": true,
+      "cross_filtering_behavior": "Both",
+      "cardinality": "1:1",
+      "security_filtering_behavior": "",
+      "from_key_count": "268",
+      "to_key_count": "804",
+      "rely_on_referential_integrity": false
+    },
+    {
+      "from_table": "CAD Tickets",
+      "from_column": "TicketID",
+      "to_table": "All Tickets",
+      "to_column": "TicketID",
+      "is_active": true,
+      "cross_filtering_behavior": "Both",
+      "cardinality": "1:1",
+      "security_filtering_behavior": "",
+      "from_key_count": "7",
+      "to_key_count": "804",
+      "rely_on_referential_integrity": false
+    }
+  ],
+  "table_details": {
+    "All Tickets": {
+      "storage_mode": "Import",
+      "partition_type": "Entity",
+      "state": "Processing",
+      "modified_time": "2026-04-01 20:04:04",
+      "refreshed_time": "2026-04-01 20:06:17",
+      "data_source_id": null
+    },
+    "KM Tickets": {
+      "storage_mode": "Import",
+      "partition_type": "Entity",
+      "state": "Processing",
+      "modified_time": "2026-04-01 20:04:04",
+      "refreshed_time": "2026-04-01 20:04:06",
+      "data_source_id": null
+    },
+    "PW Tickets": {
+      "storage_mode": "Import",
+      "partition_type": "Entity",
+      "state": "Processing",
+      "modified_time": "2025-11-17 12:58:32",
+      "refreshed_time": "2026-03-31 11:50:43",
+      "data_source_id": null
+    },
+    "LastRefresh": {
+      "storage_mode": "Import",
+      "partition_type": "Entity",
+      "state": "Processing",
+      "modified_time": "2025-11-17 12:58:32",
+      "refreshed_time": "2026-03-31 11:50:35",
+      "data_source_id": null
+    },
+    "EMS Tickets": {
+      "storage_mode": "Import",
+      "partition_type": "Entity",
+      "state": "Processing",
+      "modified_time": "2025-11-17 12:58:32",
+      "refreshed_time": "2026-03-31 11:52:23",
+      "data_source_id": null
+    },
+    "CAD Tickets": {
+      "storage_mode": "Import",
+      "partition_type": "Entity",
+      "state": "Processing",
+      "modified_time": "2026-04-01 20:04:04",
+      "refreshed_time": "2026-04-01 20:04:11",
+      "data_source_id": null
+    },
+    "R$PW and KM Tickets (40680)$AutoDetected c97cabac a2dc 43e5 bf6d db81eaaf1e81 (44950)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-04-01 20:06:18",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "R$PW and KM Tickets (40680)$AutoDetected fc473d61 c11d 40bb 9a11 1a5c0a5cafdb (44951)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-04-01 20:06:18",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "R$PW and KM Tickets (40680)$AutoDetected f7d1d938 4a26 45d0 b185 f3c2526c1554 (66171)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-04-01 20:06:18",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "R$PW and KM Tickets (40680)$AutoDetected fe40a2a3 2505 46ab 9490 62268f5dd980 (79751)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-04-01 20:06:18",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "R$KM Tickets (42314)$AutoDetected c97cabac a2dc 43e5 bf6d db81eaaf1e81 (44950)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-04-01 20:06:18",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "R$PW Tickets (42326)$AutoDetected fc473d61 c11d 40bb 9a11 1a5c0a5cafdb (44951)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-04-01 20:06:18",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "R$EMS Tickets (62973)$AutoDetected f7d1d938 4a26 45d0 b185 f3c2526c1554 (66171)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-04-01 20:06:18",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "R$CAD Tickets (77870)$AutoDetected fe40a2a3 2505 46ab 9490 62268f5dd980 (79751)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-04-01 20:06:18",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "TYPE": {
+      "storage_mode": "Import",
+      "partition_type": "Entity",
+      "state": "Processing",
+      "modified_time": "2026-05-28 16:26:57",
+      "refreshed_time": "2026-05-28 16:26:57",
+      "data_source_id": null
+    },
+    "EXT": {
+      "storage_mode": "Import",
+      "partition_type": "Entity",
+      "state": "Processing",
+      "modified_time": "2026-05-28 16:26:56",
+      "refreshed_time": "2026-05-28 16:26:56",
+      "data_source_id": null
+    },
+    "TestCalculatedTable": {
+      "storage_mode": "Import",
+      "partition_type": "Calculated",
+      "state": "Processing",
+      "modified_time": "2026-07-01 13:01:52",
+      "refreshed_time": "2026-07-01 13:08:27",
+      "data_source_id": null
+    },
+    "TestParameter": {
+      "storage_mode": "Import",
+      "partition_type": "Calculated",
+      "state": "Processing",
+      "modified_time": "2026-07-01 13:02:09",
+      "refreshed_time": "2026-07-01 13:08:27",
+      "data_source_id": null
+    },
+    "R$PW and KM Tickets (40680)$814d4801 86d4 448d 83be 0527ff6c05d8 (49943)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-07-01 13:08:27",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "R$PW and KM Tickets (40680)$b174e1d4 9e3c 4aa4 b611 c9cafac37cef (62987)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-07-01 13:08:27",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "U$DateTableTemplate 5ac8fecd 6b95 4955 8e9a 6567b44d472c (40683)$Date Hierarchy (40747)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-07-01 13:08:27",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "R$KM Tickets (42314)$0487e1ef 3967 4d87 8c5e 2b67f46c536a (42339)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-07-01 13:08:27",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "R$KM Tickets (42314)$854d66b5 2b6d 4cb2 b4ff c6f0490fc267 (42340)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-07-01 13:08:27",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "U$LocalDateTable a8cee460 e55e 4fd4 98c4 e01a14f0e389 (42320)$Date Hierarchy (42420)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-07-01 13:08:27",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "U$LocalDateTable 51692e8c 86ca 4f63 9786 8510225c8813 (42323)$Date Hierarchy (42421)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-07-01 13:08:27",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "R$PW Tickets (42326)$b811b66d abfa 4c2c aa0e 8dd199e08016 (42342)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-07-01 13:08:27",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "R$PW Tickets (42326)$286b4a99 d094 4f48 a380 01c6b5533342 (42341)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-07-01 13:08:27",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "R$PW Tickets (42326)$3462b1ba f3aa 48e5 ae3e 1da636f662ba (42343)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-07-01 13:08:27",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "U$LocalDateTable c9c31ed8 27c4 46a5 8b5c 96cd9eff8718 (42329)$Date Hierarchy (42422)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-07-01 13:08:27",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "U$LocalDateTable 8eede4fe 1629 468c a3d1 e696c9b7bc14 (42332)$Date Hierarchy (42423)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-07-01 13:08:27",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "U$LocalDateTable 67fb57af 7a6f 4ab1 aa6b b58331d22130 (42335)$Date Hierarchy (42424)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-07-01 13:08:27",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "U$LocalDateTable 053dcabc 5651 4175 8132 9508fa8a73d9 (49940)$Date Hierarchy (49957)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-07-01 13:08:27",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "R$LastRefresh (52495)$419ecb71 b829 49ca 9651 6aaf0be1d1b5 (52501)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-07-01 13:08:27",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "U$LocalDateTable 276dd8ff 3655 4ea3 8bf2 0cd74098ef4f (52498)$Date Hierarchy (52512)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-07-01 13:08:27",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "R$EMS Tickets (62973)$9bf2aa5c 4924 45f9 bd30 2822c88973ba (62985)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-07-01 13:08:27",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "R$EMS Tickets (62973)$6bb8b67d 9391 429b 82b7 a5300ca6d50e (62986)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-07-01 13:08:27",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "U$LocalDateTable 032e7764 0ac6 461b 9db1 8089510c3a6e (62976)$Date Hierarchy (63033)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-07-01 13:08:27",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "U$LocalDateTable c4fbf328 9b60 4878 b04e 120ad15325e4 (62979)$Date Hierarchy (63034)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-07-01 13:08:27",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "U$LocalDateTable 754fef8b 2551 4f13 99cc 01b1173d7350 (62982)$Date Hierarchy (63035)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-07-01 13:08:27",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "R$TYPE (90903)$7752a78a b663 4803 bf1f 4d2be85d5a95 (90915)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-07-01 13:08:27",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "U$LocalDateTable 6d413c66 281a 4661 bd94 f7fb1e403e69 (90906)$Date Hierarchy (90948)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-07-01 13:08:27",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "R$EXT (90909)$b215a8a1 d5c6 498c a615 b4ecd6309afc (90916)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-07-01 13:08:27",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    },
+    "U$LocalDateTable 57751e39 d864 42ec 8747 f0a7c3bcadd4 (90912)$Date Hierarchy (90949)": {
+      "storage_mode": "Dual",
+      "partition_type": "None",
+      "state": "Processing",
+      "modified_time": "2026-07-01 13:08:27",
+      "refreshed_time": "1699-12-31 00:00:00",
+      "data_source_id": null
+    }
+  },
+  "storage_mode_summary": {
+    "Import": 10,
+    "Dual": 33
+  }
+}

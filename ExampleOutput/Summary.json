@@ -1,0 +1,69 @@
+{
+  "report_info": {
+    "report_name": "MVR Systems and Knowledge Support",
+    "file_path": "\\\\mvrdfs.mvr.ds.usace.army.mil\\EGIS\\Work\\Office\\EC\\EC\\General Power BI Dashboards\\MVR Systems and Knowledge Support.pbix",
+    "file_size_mb": 1.78,
+    "documentation_generated": "2026-07-01T09:15:46.862527",
+    "author": "Ryan Benac (USACE Rock Island District)",
+    "pbixray_version": "Latest"
+  },
+  "tables": {
+    "total_tables": 23,
+    "user_generated_tables": 10,
+    "system_generated_tables": 13,
+    "calculated_tables": 15,
+    "hidden_tables": 0,
+    "visible_tables": 23
+  },
+  "columns": {
+    "total_columns": 198,
+    "calculated_columns": 78,
+    "regular_columns": 120,
+    "hidden_columns": 78,
+    "columns_with_descriptions": 0
+  },
+  "measures": {
+    "total_measures": 2,
+    "measures_with_descriptions": 2,
+    "measures_in_display_folders": 2
+  },
+  "relationships": {
+    "total_relationships": 4,
+    "active_relationships": 4,
+    "inactive_relationships": 0,
+    "bidirectional_relationships": 4,
+    "single_direction_relationships": 0
+  },
+  "queries": {
+    "total_m_queries": 8,
+    "queries_with_load_enabled": 8,
+    "queries_with_load_disabled": 0,
+    "m_parameters": 2
+  },
+  "connections": {
+    "total_unique_connections": 5,
+    "connection_types": {
+      "SharePoint": 4,
+      "Odbc": 1
+    }
+  },
+  "storage_modes": {
+    "Import": 10,
+    "Dual": 33
+  },
+  "complexity_indicators": {
+    "has_calculated_tables": true,
+    "has_calculated_columns": true,
+    "has_bidirectional_relationships": true,
+    "has_inactive_relationships": false,
+    "has_directquery_tables": false,
+    "has_dual_tables": true,
+    "average_columns_per_table": 8.61,
+    "average_measures_per_table": 0.09
+  },
+  "documentation_quality": {
+    "tables_with_descriptions": 0,
+    "columns_with_descriptions_percentage": 0.0,
+    "measures_with_descriptions_percentage": 100.0
+  }
+}

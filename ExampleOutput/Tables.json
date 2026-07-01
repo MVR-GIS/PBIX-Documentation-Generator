@@ -1,0 +1,1685 @@
+{
+  "All Tickets": {
+    "is_calculated_table": false,
+    "table_expression": "",
+    "is_hidden": false,
+    "is_system_generated": false,
+    "columns": [
+      {
+        "name": "Source",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "TicketID",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Submitter",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "RequestCategory",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Ticket Name",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Status",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Additional Information",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Support Notes",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Training",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Division",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Modified",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Created",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Attachments",
+        "data_type": "11",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "PBI_UID",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "DateTimeReceived",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "DateReceived",
+        "data_type": "9",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "MONTH",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "DAY",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "YEAR",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "MonthName",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "DateClosed",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Submitter365Id",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Submitter365StringId",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "ResolutionDate",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "ProductorDashboardName",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Last Updated",
+        "data_type": "9",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "EMSTeamSupport",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Additional Information Details",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "ProjectWiseCleanup",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Scanning",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Specifications",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "TrainingOptions",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Title",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "ProjectName(optional_x0029",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "SubmittedDate",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "SupportHistory",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "ID",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      }
+    ],
+    "measures": []
+  },
+  "CAD Tickets": {
+    "is_calculated_table": false,
+    "table_expression": "",
+    "is_hidden": false,
+    "is_system_generated": false,
+    "columns": [
+      {
+        "name": "Title",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "TicketID",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "RequestCategory",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "ProjectName(optional_x0029",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "SubmittedDate",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Status",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "SupportHistory",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "ResolutionDate",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "ID",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Modified",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Created",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Submitter",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Source",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "PBI_UID",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Additional Information",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Division",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      }
+    ],
+    "measures": []
+  },
+  "DateTableTemplate_5ac8fecd-6b95-4955-8e9a-6567b44d472c": {
+    "is_calculated_table": true,
+    "table_expression": "Calendar(Date(2015,1,1), Date(2015,1,1))",
+    "is_hidden": false,
+    "is_system_generated": true,
+    "columns": [
+      {
+        "name": "Year",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "YEAR([Date])"
+      },
+      {
+        "name": "MonthNo",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "MONTH([Date])"
+      },
+      {
+        "name": "Month",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "FORMAT([Date], \"MMMM\")"
+      },
+      {
+        "name": "QuarterNo",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "INT(([MonthNo] + 2) / 3)"
+      },
+      {
+        "name": "Quarter",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "\"Qtr \" & [QuarterNo]"
+      },
+      {
+        "name": "Day",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "DAY([Date])"
+      }
+    ],
+    "measures": []
+  },
+  "EMS Tickets": {
+    "is_calculated_table": false,
+    "table_expression": "",
+    "is_hidden": false,
+    "is_system_generated": false,
+    "columns": [
+      {
+        "name": "TicketID",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "RequestCategory",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "ProductorDashboardName",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Additional Information Details",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Support Notes",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Status",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "ResolutionDate",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "DateTimeReceived",
+        "data_type": "9",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Last Updated",
+        "data_type": "9",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Modified",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Created",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Submitter",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "EMSTeamSupport",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Source",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "PBI_UID",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Division",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Additional Information",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      }
+    ],
+    "measures": []
+  },
+  "EXT": {
+    "is_calculated_table": false,
+    "table_expression": "",
+    "is_hidden": false,
+    "is_system_generated": false,
+    "columns": [
+      {
+        "name": "FileDate",
+        "data_type": "9",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "[IsGrandTotalRowTotal]",
+        "data_type": "11",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "[CountCompositeKey]",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "[AverageA_QA_Score]",
+        "data_type": "8",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "t_MVD_i[A_HasDocSubType]",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "dms_doc[File Extension]",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      }
+    ],
+    "measures": []
+  },
+  "KM Tickets": {
+    "is_calculated_table": false,
+    "table_expression": "",
+    "is_hidden": false,
+    "is_system_generated": false,
+    "columns": [
+      {
+        "name": "TicketID",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Submitter",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "RequestCategory",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Training",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Additional Information",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Status",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Support Notes",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Modified",
+        "data_type": "9",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Created",
+        "data_type": "9",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Attachments",
+        "data_type": "11",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Source",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "PBI_UID",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "DateTimeReceived",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "DateClosed",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "ProjectWiseCleanup",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Scanning",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Specifications",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "TrainingOptions",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Division",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      }
+    ],
+    "measures": []
+  },
+  "LastRefresh": {
+    "is_calculated_table": false,
+    "table_expression": "",
+    "is_hidden": false,
+    "is_system_generated": false,
+    "columns": [
+      {
+        "name": "Last Refresh Date",
+        "data_type": "9",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      }
+    ],
+    "measures": []
+  },
+  "LocalDateTable_032e7764-0ac6-461b-9db1-8089510c3a6e": {
+    "is_calculated_table": true,
+    "table_expression": "Calendar(Date(Year(MIN('EMS Tickets'[DateTimeReceived])), 1, 1), Date(Year(MAX('EMS Tickets'[DateTimeReceived])), 12, 31))",
+    "is_hidden": false,
+    "is_system_generated": true,
+    "columns": [
+      {
+        "name": "Year",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "YEAR([Date])"
+      },
+      {
+        "name": "MonthNo",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "MONTH([Date])"
+      },
+      {
+        "name": "Month",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "FORMAT([Date], \"MMMM\")"
+      },
+      {
+        "name": "QuarterNo",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "INT(([MonthNo] + 2) / 3)"
+      },
+      {
+        "name": "Quarter",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "\"Qtr \" & [QuarterNo]"
+      },
+      {
+        "name": "Day",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "DAY([Date])"
+      }
+    ],
+    "measures": []
+  },
+  "LocalDateTable_053dcabc-5651-4175-8132-9508fa8a73d9": {
+    "is_calculated_table": true,
+    "table_expression": "Calendar(Date(Year(MIN('All Tickets'[DateReceived])), 1, 1), Date(Year(MAX('All Tickets'[DateReceived])), 12, 31))",
+    "is_hidden": false,
+    "is_system_generated": true,
+    "columns": [
+      {
+        "name": "Year",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "YEAR([Date])"
+      },
+      {
+        "name": "MonthNo",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "MONTH([Date])"
+      },
+      {
+        "name": "Month",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "FORMAT([Date], \"MMMM\")"
+      },
+      {
+        "name": "QuarterNo",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "INT(([MonthNo] + 2) / 3)"
+      },
+      {
+        "name": "Quarter",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "\"Qtr \" & [QuarterNo]"
+      },
+      {
+        "name": "Day",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "DAY([Date])"
+      }
+    ],
+    "measures": []
+  },
+  "LocalDateTable_276dd8ff-3655-4ea3-8bf2-0cd74098ef4f": {
+    "is_calculated_table": true,
+    "table_expression": "Calendar(Date(Year(MIN('LastRefresh'[Last Refresh Date])), 1, 1), Date(Year(MAX('LastRefresh'[Last Refresh Date])), 12, 31))",
+    "is_hidden": false,
+    "is_system_generated": true,
+    "columns": [
+      {
+        "name": "Year",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "YEAR([Date])"
+      },
+      {
+        "name": "MonthNo",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "MONTH([Date])"
+      },
+      {
+        "name": "Month",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "FORMAT([Date], \"MMMM\")"
+      },
+      {
+        "name": "QuarterNo",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "INT(([MonthNo] + 2) / 3)"
+      },
+      {
+        "name": "Quarter",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "\"Qtr \" & [QuarterNo]"
+      },
+      {
+        "name": "Day",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "DAY([Date])"
+      }
+    ],
+    "measures": []
+  },
+  "LocalDateTable_51692e8c-86ca-4f63-9786-8510225c8813": {
+    "is_calculated_table": true,
+    "table_expression": "Calendar(Date(Year(MIN('KM Tickets'[Created])), 1, 1), Date(Year(MAX('KM Tickets'[Created])), 12, 31))",
+    "is_hidden": false,
+    "is_system_generated": true,
+    "columns": [
+      {
+        "name": "Year",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "YEAR([Date])"
+      },
+      {
+        "name": "MonthNo",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "MONTH([Date])"
+      },
+      {
+        "name": "Month",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "FORMAT([Date], \"MMMM\")"
+      },
+      {
+        "name": "QuarterNo",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "INT(([MonthNo] + 2) / 3)"
+      },
+      {
+        "name": "Quarter",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "\"Qtr \" & [QuarterNo]"
+      },
+      {
+        "name": "Day",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "DAY([Date])"
+      }
+    ],
+    "measures": []
+  },
+  "LocalDateTable_57751e39-d864-42ec-8747-f0a7c3bcadd4": {
+    "is_calculated_table": true,
+    "table_expression": "Calendar(Date(Year(MIN('EXT'[FileDate])), 1, 1), Date(Year(MAX('EXT'[FileDate])), 12, 31))",
+    "is_hidden": false,
+    "is_system_generated": true,
+    "columns": [
+      {
+        "name": "Year",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "YEAR([Date])"
+      },
+      {
+        "name": "MonthNo",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "MONTH([Date])"
+      },
+      {
+        "name": "Month",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "FORMAT([Date], \"MMMM\")"
+      },
+      {
+        "name": "QuarterNo",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "INT(([MonthNo] + 2) / 3)"
+      },
+      {
+        "name": "Quarter",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "\"Qtr \" & [QuarterNo]"
+      },
+      {
+        "name": "Day",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "DAY([Date])"
+      }
+    ],
+    "measures": []
+  },
+  "LocalDateTable_67fb57af-7a6f-4ab1-aa6b-b58331d22130": {
+    "is_calculated_table": true,
+    "table_expression": "Calendar(Date(Year(MIN('PW Tickets'[Created])), 1, 1), Date(Year(MAX('PW Tickets'[Created])), 12, 31))",
+    "is_hidden": false,
+    "is_system_generated": true,
+    "columns": [
+      {
+        "name": "Year",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "YEAR([Date])"
+      },
+      {
+        "name": "MonthNo",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "MONTH([Date])"
+      },
+      {
+        "name": "Month",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "FORMAT([Date], \"MMMM\")"
+      },
+      {
+        "name": "QuarterNo",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "INT(([MonthNo] + 2) / 3)"
+      },
+      {
+        "name": "Quarter",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "\"Qtr \" & [QuarterNo]"
+      },
+      {
+        "name": "Day",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "DAY([Date])"
+      }
+    ],
+    "measures": []
+  },
+  "LocalDateTable_6d413c66-281a-4661-bd94-f7fb1e403e69": {
+    "is_calculated_table": true,
+    "table_expression": "Calendar(Date(Year(MIN('TYPE'[FileDate])), 1, 1), Date(Year(MAX('TYPE'[FileDate])), 12, 31))",
+    "is_hidden": false,
+    "is_system_generated": true,
+    "columns": [
+      {
+        "name": "Year",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "YEAR([Date])"
+      },
+      {
+        "name": "MonthNo",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "MONTH([Date])"
+      },
+      {
+        "name": "Month",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "FORMAT([Date], \"MMMM\")"
+      },
+      {
+        "name": "QuarterNo",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "INT(([MonthNo] + 2) / 3)"
+      },
+      {
+        "name": "Quarter",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "\"Qtr \" & [QuarterNo]"
+      },
+      {
+        "name": "Day",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "DAY([Date])"
+      }
+    ],
+    "measures": []
+  },
+  "LocalDateTable_754fef8b-2551-4f13-99cc-01b1173d7350": {
+    "is_calculated_table": true,
+    "table_expression": "Calendar(Date(Year(MIN('All Tickets'[Last Updated])), 1, 1), Date(Year(MAX('All Tickets'[Last Updated])), 12, 31))",
+    "is_hidden": false,
+    "is_system_generated": true,
+    "columns": [
+      {
+        "name": "Year",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "YEAR([Date])"
+      },
+      {
+        "name": "MonthNo",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "MONTH([Date])"
+      },
+      {
+        "name": "Month",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "FORMAT([Date], \"MMMM\")"
+      },
+      {
+        "name": "QuarterNo",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "INT(([MonthNo] + 2) / 3)"
+      },
+      {
+        "name": "Quarter",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "\"Qtr \" & [QuarterNo]"
+      },
+      {
+        "name": "Day",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "DAY([Date])"
+      }
+    ],
+    "measures": []
+  },
+  "LocalDateTable_8eede4fe-1629-468c-a3d1-e696c9b7bc14": {
+    "is_calculated_table": true,
+    "table_expression": "Calendar(Date(Year(MIN('PW Tickets'[Modified])), 1, 1), Date(Year(MAX('PW Tickets'[Modified])), 12, 31))",
+    "is_hidden": false,
+    "is_system_generated": true,
+    "columns": [
+      {
+        "name": "Year",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "YEAR([Date])"
+      },
+      {
+        "name": "MonthNo",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "MONTH([Date])"
+      },
+      {
+        "name": "Month",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "FORMAT([Date], \"MMMM\")"
+      },
+      {
+        "name": "QuarterNo",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "INT(([MonthNo] + 2) / 3)"
+      },
+      {
+        "name": "Quarter",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "\"Qtr \" & [QuarterNo]"
+      },
+      {
+        "name": "Day",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "DAY([Date])"
+      }
+    ],
+    "measures": []
+  },
+  "LocalDateTable_a8cee460-e55e-4fd4-98c4-e01a14f0e389": {
+    "is_calculated_table": true,
+    "table_expression": "Calendar(Date(Year(MIN('KM Tickets'[Modified])), 1, 1), Date(Year(MAX('KM Tickets'[Modified])), 12, 31))",
+    "is_hidden": false,
+    "is_system_generated": true,
+    "columns": [
+      {
+        "name": "Year",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "YEAR([Date])"
+      },
+      {
+        "name": "MonthNo",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "MONTH([Date])"
+      },
+      {
+        "name": "Month",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "FORMAT([Date], \"MMMM\")"
+      },
+      {
+        "name": "QuarterNo",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "INT(([MonthNo] + 2) / 3)"
+      },
+      {
+        "name": "Quarter",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "\"Qtr \" & [QuarterNo]"
+      },
+      {
+        "name": "Day",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "DAY([Date])"
+      }
+    ],
+    "measures": []
+  },
+  "LocalDateTable_c4fbf328-9b60-4878-b04e-120ad15325e4": {
+    "is_calculated_table": true,
+    "table_expression": "Calendar(Date(Year(MIN('EMS Tickets'[Last Updated])), 1, 1), Date(Year(MAX('EMS Tickets'[Last Updated])), 12, 31))",
+    "is_hidden": false,
+    "is_system_generated": true,
+    "columns": [
+      {
+        "name": "Year",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "YEAR([Date])"
+      },
+      {
+        "name": "MonthNo",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "MONTH([Date])"
+      },
+      {
+        "name": "Month",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "FORMAT([Date], \"MMMM\")"
+      },
+      {
+        "name": "QuarterNo",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "INT(([MonthNo] + 2) / 3)"
+      },
+      {
+        "name": "Quarter",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "\"Qtr \" & [QuarterNo]"
+      },
+      {
+        "name": "Day",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "DAY([Date])"
+      }
+    ],
+    "measures": []
+  },
+  "LocalDateTable_c9c31ed8-27c4-46a5-8b5c-96cd9eff8718": {
+    "is_calculated_table": true,
+    "table_expression": "Calendar(Date(Year(MIN('PW Tickets'[DateTimeReceived])), 1, 1), Date(Year(MAX('PW Tickets'[DateTimeReceived])), 12, 31))",
+    "is_hidden": false,
+    "is_system_generated": true,
+    "columns": [
+      {
+        "name": "Year",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "YEAR([Date])"
+      },
+      {
+        "name": "MonthNo",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "MONTH([Date])"
+      },
+      {
+        "name": "Month",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "FORMAT([Date], \"MMMM\")"
+      },
+      {
+        "name": "QuarterNo",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "INT(([MonthNo] + 2) / 3)"
+      },
+      {
+        "name": "Quarter",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "\"Qtr \" & [QuarterNo]"
+      },
+      {
+        "name": "Day",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": true,
+        "calculation_type": "dax",
+        "dax_formula": "DAY([Date])"
+      }
+    ],
+    "measures": []
+  },
+  "PW Tickets": {
+    "is_calculated_table": false,
+    "table_expression": "",
+    "is_hidden": false,
+    "is_system_generated": false,
+    "columns": [
+      {
+        "name": "TicketID",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Submitter",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "RequestCategory",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Ticket Name",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "DateTimeReceived",
+        "data_type": "9",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Status",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Additional Information",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Modified",
+        "data_type": "9",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Created",
+        "data_type": "9",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Attachments",
+        "data_type": "11",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Support Notes",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Source",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "PBI_UID",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Submitter365Id",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Submitter365StringId",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "ResolutionDate",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "Division",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      }
+    ],
+    "measures": []
+  },
+  "TYPE": {
+    "is_calculated_table": false,
+    "table_expression": "",
+    "is_hidden": false,
+    "is_system_generated": false,
+    "columns": [
+      {
+        "name": "FileDate",
+        "data_type": "9",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "[IsGrandTotalRowTotal]",
+        "data_type": "11",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "[AverageA_QA_Score]",
+        "data_type": "8",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "[CountCompositeKey]",
+        "data_type": "6",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "t_MVD_i[A_HasDocSubType]",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "t_MVD_i[DOC_TYPE]",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      },
+      {
+        "name": "t_MVD_i[DOC_SUBTYPE]",
+        "data_type": "2",
+        "description": "",
+        "is_hidden": false,
+        "calculation_type": "none"
+      }
+    ],
+    "measures": [
+      {
+        "name": "Example",
+        "expression": "1",
+        "description": "nan",
+        "display_folder": "nan"
+      }
+    ]
+  },
+  "TestCalculatedTable": {
+    "is_calculated_table": true,
+    "table_expression": "\nROW(\"Value\", 1)",
+    "is_hidden": false,
+    "is_system_generated": false,
+    "columns": [],
+    "measures": []
+  },
+  "TestParameter": {
+    "is_calculated_table": true,
+    "table_expression": "GENERATESERIES(0, 20, 1)",
+    "is_hidden": false,
+    "is_system_generated": false,
+    "columns": [],
+    "measures": [
+      {
+        "name": "TestParameter Value",
+        "expression": "SELECTEDVALUE('TestParameter'[TestParameter])",
+        "description": "nan",
+        "display_folder": "nan"
+      }
+    ]
+  }
+}

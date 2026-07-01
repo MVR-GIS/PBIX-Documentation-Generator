@@ -1,0 +1,39 @@
+{
+  "SharePoint.Tables::https://usace.dps.mil/sites/TDL-CEMVR-EC-T-EC-KM-Admin/": {
+    "source_function": "SharePoint.Tables",
+    "endpoint": "https://usace.dps.mil/sites/TDL-CEMVR-EC-T-EC-KM-Admin/",
+    "tables_using": [
+      "KM Tickets"
+    ]
+  },
+  "SharePoint.Tables::https://usace.dps.mil/sites/TDL-CEMVR-EC-T-ProjectWiseAdmin/": {
+    "source_function": "SharePoint.Tables",
+    "endpoint": "https://usace.dps.mil/sites/TDL-CEMVR-EC-T-ProjectWiseAdmin/",
+    "tables_using": [
+      "PW Tickets",
+      "CAD Tickets"
+    ]
+  },
+  "SharePoint.Tables::https://usace.dps.mil/sites/TDL-CEMVR-EMSUsers/": {
+    "source_function": "SharePoint.Tables",
+    "endpoint": "https://usace.dps.mil/sites/TDL-CEMVR-EMSUsers/",
+    "tables_using": [
+      "EMS Tickets"
+    ]
+  },
+  "SharePoint.Files::https://usace.dps.mil/sites/TDL-CEMVR-EMSUsers/": {
+    "source_function": "SharePoint.Files",
+    "endpoint": "https://usace.dps.mil/sites/TDL-CEMVR-EMSUsers/",
+    "tables_using": [
+      "TYPE",
+      "EXT"
+    ]
+  },
+  "Odbc.DataSource::dsn=EDW_NTZ_EMS": {
+    "source_function": "Odbc.DataSource",
+    "endpoint": "dsn=EDW_NTZ_EMS",
+    "tables_using": [
+      "[Parameter] EMS_EMPLOYEES"
+    ]
+  }
+}
