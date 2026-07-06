@@ -53,10 +53,10 @@ graph LR
     Odbc_DataSource ==>|extracts| EMS_EMPLOYEES
 
     %% Query Dependencies
+    EMS_Tickets -->|transforms| All_Tickets
+    KM_Tickets -->|transforms| All_Tickets
     CAD_Tickets -->|transforms| All_Tickets
     PW_Tickets -->|transforms| All_Tickets
-    KM_Tickets -->|transforms| All_Tickets
-    EMS_Tickets -->|transforms| All_Tickets
     EMS_EMPLOYEES -->|transforms| PW_Tickets
     EMS_EMPLOYEES -->|transforms| EMS_Tickets
     EMS_EMPLOYEES -->|transforms| CAD_Tickets

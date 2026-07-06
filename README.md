@@ -85,5 +85,43 @@ For each processed report, the script generates:
 - `Model_Diagram.md` — Mermaid ER diagram of table relationships
 - `Query_Dependencies.md` — Mermaid dependency graph for Power Query queries
 
+## Output folder structure
+
+Each processed PBIX file gets its own folder under the configured `output_base_dir`. Example:
+
+```text
+DashboardDocs/
+  ExampleReportName/
+    Connections.json
+    M_Queries.json
+    Model.json
+    Model_Diagram.md
+    Query_Dependencies.md
+    Summary.json
+    Tables.json
+```
+
+If multiple PBIX files are processed, the repository output folder may look like:
+
+```text
+DashboardDocs/
+  ExampleReportName/
+    Connections.json
+    M_Queries.json
+    Model.json
+    Model_Diagram.md
+    Query_Dependencies.md
+    Summary.json
+    Tables.json
+  AnotherReportName/
+    Connections.json
+    M_Queries.json
+    Model.json
+    Model_Diagram.md
+    Query_Dependencies.md
+    Summary.json
+    Tables.json
+```
+
 ## AI Assistance Disclosure
 Portions of the code and documentation in this repository were generated or refined with the assistance of **Claude Sonnet 4.5** via Army Vantage AIP Threads.
