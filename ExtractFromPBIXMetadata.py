@@ -50,7 +50,7 @@ from pbixray import PBIXRay
 # Set this to either:
 # 1. A single .pbix file path
 # 2. A folder path (will recursively scan for all .pbix files)
-pbix_path = r"\\mvrdfs.mvr.ds.usace.army.mil\EGIS\Work\Office\EC\EC\General Power BI Dashboards"
+pbix_path = r"\\mvrdfs.mvr.ds.usace.army.mil\\EGIS\\Work\\Office\\EC\\EC\\EMS Power BI Dashboards\\MVR_EMS_Semantic_Model.pbix"
 
 # Output directory where documentation will be saved
 output_base_dir = Path(r"C:\Workspace\GIT\PBIX-Documentation-Generator\DashboardDocs")
